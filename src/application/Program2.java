@@ -7,7 +7,6 @@ import model.dao.DaoFactory;
 import model.dao.DepartmentDao;
 import model.entities.Department;
 
-
 public class Program2 {
 
 	public static void main(String[] args) {
@@ -25,9 +24,9 @@ public class Program2 {
 		System.out.println("Enter id of department: ");
 		int id = sc.nextInt();
 		Department dep = depDao.findById(id);
-		
+
 		System.out.println(dep);
-		
+
 		System.out.println("\n=== TEST 3: Department findByAll ====");
 
 		List<Department> list = depDao.findAll();
@@ -35,6 +34,16 @@ public class Program2 {
 		for (Department obj : list) {
 			System.out.println(obj);
 		}
+
+		System.out.println("\n=== TEST 4: Department update ====");
+		System.out.println("Enter id of department: ");
+
+		dep = depDao.findById(sc.nextInt());
+
+		dep.setName("Clothes");
+		depDao.update(dep);
+		System.out.println("Update completed");
+
 		sc.close();
 	}
 
